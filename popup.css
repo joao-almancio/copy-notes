@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+body {
+    min-width: 20rem;
+    padding: 1rem;
+}
+
+body > ul > li:not(:first-of-type) {
+    margin-top: 1rem;
+}
+
+.copy-button {
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+}
+.copy-button:hover {
+    filter: brightness(0.8);
+}

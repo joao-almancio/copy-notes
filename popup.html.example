@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <script src="./public/popup.js" type="module"></script>
+    <link rel="stylesheet" href="popup.css">
+    <title>Copy Notes</title>
+</head>
+
+<body>
+
+    <ul class="linkList">
+        <li><strong>Personal Information</strong>
+            <ul>
+                <li><button class="copy-button">First Name</button></li>
+                <li><button class="copy-button">Phone Number</button></li>
+                <li><button class="copy-button">Other Note</button></li>
+            </ul>
+        </li>
+        <li><strong>Quick access</strong>
+            <ul>
+                <li><button class="copy-button">New Idea</button></li>
+                <li><button class="copy-button">Favorite emoji</button></li>
+                <li><button class="copy-button">Frequent copied information</button></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>
