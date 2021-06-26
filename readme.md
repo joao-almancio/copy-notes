@@ -19,4 +19,4 @@ With this extension you can:
 - [ ] Export data as JSON.
 
 Great MAYBE
-- [ ] Implementation of data-encription (if it's possíble).
+- [ ] Implementation of data-encription (if it's possible).
