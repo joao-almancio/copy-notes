@@ -1,10 +1,10 @@
+
 import { useStorage, Entry } from "./storage"
 
 const mockGoodEntry = {
     name: "Grupo",
     items: expect.any(Array)
 } as Entry;
-const mockNullEntry = { } as Entry;
 
 const mockNotStringEntry = {
     name: 1,
@@ -36,15 +36,18 @@ test('[useStorage.get] should return a promise', () => {
 test('[useStorage.set] should throw an error if the Entry is null', () => {
     const { set } = useStorage();
     
-    expect(() => {set(mockNullEntry)}).toThrow("Entry não pode ser vazia");
+    // @ts-ignore
+    expect(() => {set({})}).toThrow("[Entry] não pode ser vazia");
 });
 test('[useStorage.set] should throw an error if the Entry.name values are not string', () => {
     const { set } = useStorage();
     
-    expect(() => {set(mockNullEntry)}).toThrow("Todos os valores de Entry.name deve ser string");
+    // @ts-ignore
+    expect(() => {set({name: 1, items: ["item 1"]})}).toThrow("Todos os valores de [Entry.name] deve ser string");
 });
 test('[useStorage.set] should throw an error if the Entry.items values are not array of string', () => {
     const { set } = useStorage();
     
-    expect(() => {set(mockNullEntry)}).toThrow("Todos os valores de Entry.name deve ser um array de string");
+    // @ts-ignore
+    expect(() => {set({name: "João", items: ["João", 123]})}).toThrow("Todos os valores de [Entry.items] deve ser um array de string");
 });
