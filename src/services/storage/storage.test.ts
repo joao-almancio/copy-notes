@@ -1,5 +1,12 @@
 
-import { useStorage, Entry } from "./storage"
+import { useStorage, Storage, Entry } from "./storage"
+
+const validStorageProcessor = {
+    getAll: jest.fn(),
+    set: jest.fn(),
+    clear: jest.fn(),
+    storageName: ""
+}
 
 // [useStorage]
 describe("useStorage", () => {
@@ -11,7 +18,7 @@ describe("useStorage", () => {
             storageName: expect.any(String)
         })
 
-        const storage = useStorage(desiredStorage);
+        const storage = useStorage(validStorageProcessor);
         console.log("Entradas", Object.entries(storage))
         return expect(storage).toMatchObject(desiredStorage);
     });
@@ -26,7 +33,7 @@ describe("useStorage", () => {
 // [useStorage.get]
 describe("[useStorage.get]", () => {
     test('[useStorage.get] should return a promise', () => {
-        const { getAll } = useStorage();
+        const { getAll } = useStorage(validStorageProcessor) as Storage;
 
         return expect(getAll()).toBeInstanceOf(Promise);
     });
@@ -36,7 +43,7 @@ describe("[useStorage.get]", () => {
 // [useStorage.set]
 describe("[useStorage.set]", () => {
     test('Should return an error if the Entry is null', () => {
-        const { set } = useStorage();
+        const { set } = useStorage(validStorageProcessor) as Storage;
 
         // @ts-ignore
         expect(set({})).toBeInstanceOf(Error);
@@ -44,7 +51,7 @@ describe("[useStorage.set]", () => {
     });
 
     test('Should return an error if the Entry.name values are not string', () => {
-        const { set } = useStorage();
+        const { set } = useStorage(validStorageProcessor) as Storage;
 
         // @ts-ignore
         expect(set({ name: 1, items: ["item 1"] })).toBeInstanceOf(Error);
@@ -52,7 +59,7 @@ describe("[useStorage.set]", () => {
     });
 
     test('Should return an error if the [Entry.items] values is not an array of string', () => {
-        const { set } = useStorage();
+        const { set } = useStorage(validStorageProcessor) as Storage;
 
         // @ts-ignore
         expect(set({ name: "João", items: ["João", 123] })).toBeInstanceOf(Error);
