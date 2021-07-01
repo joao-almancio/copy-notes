@@ -1,3 +1,7 @@
+import { useStorage } from "./services/storage/storage.js";
+
+const storage = useStorage();
+
 const showElement = ((element: HTMLElement, makeVisible: boolean) => {
     element.style.transition = "opacity 200ms";
     if (makeVisible) {
@@ -24,3 +28,13 @@ document.querySelectorAll('.copy-button').forEach(button => {
 })
 
 
+storage.set({name: "Pessoal", items: ["item 1", "item 2"]})
+storage.set({name: "Pessoal 2", items: ["item 1", "item 2"]})
+document.querySelector('.showCache')?.addEventListener("click", () => {
+    storage.getAll().then(data => {
+        
+    })
+})
+document.querySelector('.clear')?.addEventListener("click", () => {
+    storage.clear()
+})

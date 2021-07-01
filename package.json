@@ -4,8 +4,9 @@
   "description": "",
   "main": "background.js",
   "scripts": {
+    "start": "tsc --watch",
     "dev": "tsc --watch",
-    "test": "jest"
+    "test": "jest --verbose --watch"
   },
   "author": "",
   "license": "ISC",
