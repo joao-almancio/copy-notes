@@ -3,9 +3,6 @@ Welcome to the Copy Notes project.
 
 The intention is to create a quick copy and paste Chrome extension to help with text we have to frequently copy and paste.
 
-The main objective is practicing and getting the hang of unit testing.
-For this purpose I'm using Jest api.
-
 Feel free to use, modify an learn together.
 
 ## Features
